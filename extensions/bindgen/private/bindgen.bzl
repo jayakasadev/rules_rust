@@ -192,6 +192,7 @@ def _rust_bindgen_impl(ctx):
     cc_lib = ctx.attr.cc_lib
     header = ctx.file.header
     cc_header_list = ctx.attr.cc_lib[CcInfo].compilation_context.headers.to_list()
+    print("CC_HEADERS: ", cc_header_list)
     if header not in cc_header_list:
         fail("Header {} is not in {}'s transitive headers.".format(ctx.attr.header, cc_lib), "header")
 
